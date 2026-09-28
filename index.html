@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semangat, Clarissa! 💗</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: linear-gradient(135deg, #ffe0eb, #e8ddff);
+      overflow-x: hidden;
+      color: #65465c;
+      padding: 20px;
+    }
+
+    .card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.85);
+      width: 100%;
+      max-width: 420px;
+      padding: 35px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(174, 106, 145, 0.2);
+      animation: muncul 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes muncul {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .emoji {
+      font-size: 55px;
+      margin-bottom: 15px;
+      animation: goyang 2s infinite;
+    }
+
+    @keyframes goyang {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    h1 {
+      color: #d75c91;
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #98778b;
+      margin-bottom: 25px;
+    }
+
+    .message {
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      border: none;
+      background: linear-gradient(135deg, #ff85ae, #c58bf2);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 14px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #e9b2d1;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #pesan {
+      display: none;
+      margin-top: 25px;
+      line-height: 1.8;
+      font-size: 16px;
+      animation: muncul 0.8s ease;
+    }
+
+    .from {
+      margin-top: 25px;
+      color: #d75c91;
+      font-weight: bold;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      animation: terbang 6s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes terbang {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      20% { opacity: 0.8; }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #b28da5;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="emoji">🌷💗</div>
+
+    <h1>Semangat ya, Clarissa!</h1>
+    <p class="subtitle">Ada sedikit pesan buat kamu ✨</p>
+
+    <div class="message">
+      Haiii Clarissa! 👋🏻<br><br>
+      Gimana harinya? Semoga hari ini kamu
+      baik-baik aja, yaa. Kalau lagi capek,
+      jangan lupa istirahat. Kalau lagi banyak
+      pikiran, jangan terlalu keras sama diri sendiri.
+      <br><br>
+      Kamu nggak harus selalu kuat setiap saat.
+      Pelan-pelan aja, yang penting tetap berusaha.
+      Aku yakin kamu bisa melewati hari-hari
+      yang mungkin terasa berat.
+    </div>
+
+    <button onclick="bukaPesan()">
+      Klik kalau mau senyum 💌
+    </button>
+
+    <div id="pesan">
+      <p>
+        Eitsss, masih ada satu lagi! 😆💕
+        <br><br>
+        Jangan lupa makan, minum air yang cukup,
+        dan jangan begadang terus, yaa.
+        Kamu juga berhak bahagia dan menikmati
+        hal-hal kecil yang bikin kamu senang.
+        <br><br>
+        Kalau hari ini belum sesuai harapan,
+        nggak apa-apa. Besok masih ada kesempatan
+        buat mencoba lagi.
+        <br><br>
+        Tetap jadi Clarissa yang ceria,
+        jangan kehilangan senyum manismu.
+        Semangat terus, yaaa!
+        <br><br>
+        <strong>Jangan lupa bahagia, Clarissa! 🌸</strong>
+      </p>
+    </div>
+
+    <div class="from">
+      With love,<br>
+      Zunun 💗
+    </div>
+
+    <div class="footer">
+      Dibuat khusus untuk Clarissa 🌷
+    </div>
+  </div>
+
+  <script>
+    function bukaPesan() {
+      const pesan = document.getElementById("pesan");
+
+      if (pesan.style.display === "block") {
+        pesan.style.display = "none";
+      } else {
+        pesan.style.display = "block";
+      }
+    }
+
+    // Animasi hati yang melayang
+    function buatHati() {
+      const hati = document.createElement("div");
+      hati.className = "heart";
+      hati.innerHTML = ["💗", "💕", "💖", "🌸", "💓"][
+        Math.floor(Math.random() * 5)
+      ];
+
+      hati.style.left = Math.random() * 100 + "vw";
+      hati.style.fontSize = (15 + Math.random() * 20) + "px";
+      hati.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+      document.body.appendChild(hati);
+
+      setTimeout(() => {
+        hati.remove();
+      }, 8000);
+    }
+
+    setInterval(buatHati, 500);
+  </script>
+
+</body>
+</html>
